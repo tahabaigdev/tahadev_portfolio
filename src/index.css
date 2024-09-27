@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-[62.5%];
+  }
+
+  body {
+    @apply bg-Charcoal_Black font-JetBrains_Mono text-[1.6rem] font-normal text-Pure_White;
+  }
+}
+
+@layer components {
+  .common-title h3 {
+    @apply font-Righteous text-[2.8rem] uppercase leading-[3.92rem];
+  }
+}
+
+@layer utilities {
+  .container-style {
+    @apply mx-auto max-w-[120rem];
+  }
+
+  .nav-item.active {
+    @apply text-[#c7c7c7];
+  }
+}
+
+/* Scroller Animation */
+
+.scroller {
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 12.5%,
+    rgb(0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller-in {
+  padding-inline: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+  animation: backwardScroller 100s linear infinite;
+}
+
+.scroller-2 .scroller-in {
+  animation: forwardScroller 100s linear infinite;
+}
+
+@keyframes forwardScroller {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes backwardScroller {
+  100% {
+    transform: translateX(0);
+  }
+
+  0% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Accordion */
+
+.accordion:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+.accordion-header h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  max-width: 110rem;
+  width: 100%;
+}
+
+.accordion-header .plus-icon {
+  color: #919191;
+  font-size: 1.6rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion-body {
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+
+.accordion-body .accordion-content {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  color: #666666;
+  padding: 0rem 0rem 2rem 0rem;
+}
+
+/* Hamburger Menu */
+
+.hamburger-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hamburger-btn .bar {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-btn.active .bar:nth-child(1) {
+  transform: translateY(4.9px) rotate(45deg);
+}
+
+.hamburger-btn.active .bar:nth-child(2) {
+  transform: translateY(-4.9px) rotate(-45deg);
+}

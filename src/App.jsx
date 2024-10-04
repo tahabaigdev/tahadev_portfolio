@@ -6,6 +6,8 @@ import Work from "./pages/Work/Work";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 
+taha;
+
 const App = () => {
   return (
     <div>

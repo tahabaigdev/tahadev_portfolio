@@ -2,35 +2,11 @@ import React from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GrFacebookOption } from "react-icons/gr";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Contact_Cta = () => {
-  const contactCtaRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      contactCtaRef.current,
-      { opacity: 0, y: "30px" },
-      {
-        y: "0px",
-        opacity: 1,
-        duration: 0.6,
-        scrollTrigger: {
-          trigger: contactCtaRef.current,
-          start: "top 70%",
-          end: "bottom 20%",
-        },
-      },
-    );
-  }, []);
-
   return (
-    <section ref={contactCtaRef} className="py-[10rem] lg:py-[16rem]">
+    <section className="py-[10rem] lg:py-[16rem]">
       <div className="container-style flex flex-col gap-[2.4rem]">
         <div className="common-title">
           <h3>LET'S WORK TOGETHER</h3>

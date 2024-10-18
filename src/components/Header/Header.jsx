@@ -1,11 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import TahaImg from "../../assets/images/me2.jpeg";
+import Logo from "../../assets/images/logo.png";
 import { navItems, navSocialItems } from "../../constants";
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useRef, useCallback, useState } from "react";
 import gsap from "gsap";
 
 const Header = () => {
-  const headerRef = useRef(null);
   const hamburgerMenuRef = useRef(null); // Ref for the hamburger menu container
   const hamburgerMenuItemsRef = useRef([]); // Ref for the menu items
   const location = useLocation();
@@ -35,20 +35,6 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    gsap.fromTo(
-      headerRef.current,
-      { opacity: 0, y: "-30px" },
-      {
-        y: "0px",
-        stagger: 0.2,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power1.inOut",
-      },
-    );
-  }, [location]);
-
   const handleNavClick = useCallback(
     (e, link) => {
       if (location.pathname === link) {
@@ -74,19 +60,19 @@ const Header = () => {
     ));
 
   return (
-    <header ref={headerRef} className="relative z-[998]">
+    <header className="relative z-[998]">
       <div className="container-style flex h-[6.4rem] items-center justify-between">
         <div>
           <NavLink
             to="/"
-            className="inline-flex items-center gap-[1.5rem]"
+            className="inline-flex items-center gap-[.3rem]"
             onClick={(e) => handleNavClick(e, "/")}
             aria-label="Navigate to homepage"
           >
             <img
-              src={TahaImg}
+              src={Logo}
               alt="Taha Baig logo"
-              className="logo max-w-[3.2rem] rounded-[1.2rem]"
+              className="logo max-w-[4rem] rounded-[1.2rem]"
             />
             <span className="font-Righteous text-[1.8rem] leading-[2.4rem]">
               Taha Baig

@@ -1,33 +1,9 @@
 import { BsArrowUpRight } from "react-icons/bs";
 import { ProjectsData } from "../../constants";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Recent_Work = () => {
-  const recentWorkRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      recentWorkRef.current,
-      { opacity: 0, y: "30px" },
-      {
-        y: "0px",
-        opacity: 1,
-        duration: 0.6,
-        scrollTrigger: {
-          trigger: recentWorkRef.current,
-          start: "top 70%",
-          end: "bottom 20%",
-        },
-      },
-    );
-  }, []);
-
   return (
-    <section ref={recentWorkRef}>
+    <section>
       <div className="container-style flex flex-col gap-[2.4rem]">
         <div className="common-title">
           <h3>Recent Work</h3>

@@ -1,33 +1,9 @@
 import QuoteIcon from "../../assets/images/quote.svg";
 import { TestimonialsData } from "../../constants";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials = () => {
-  const testimonialsRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      testimonialsRef.current,
-      { opacity: 0, y: "30px" },
-      {
-        y: "0px",
-        opacity: 1,
-        duration: 0.6,
-        scrollTrigger: {
-          trigger: testimonialsRef.current,
-          start: "top 70%",
-          end: "bottom 20%",
-        },
-      },
-    );
-  }, []);
-
   return (
-    <section ref={testimonialsRef}>
+    <section>
       <div className="container-style flex flex-col gap-[2.4rem]">
         <div className="common-title">
           <h3>TESTIMONIALS</h3>

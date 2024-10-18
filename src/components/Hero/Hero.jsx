@@ -1,25 +1,6 @@
-import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
-
 const Hero = () => {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      heroRef.current,
-      { opacity: 0, y: "30px" },
-      {
-        y: "0px",
-        stagger: 0.2,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power1.inOut",
-      },
-    );
-  }, []);
-
   return (
-    <section ref={heroRef} className="pt-[10rem] lg:pt-[16rem]">
+    <section className="pt-[10rem] lg:pt-[16rem]">
       <div className="container-style">
         <div className="flex max-w-[54rem] flex-col gap-[2.4rem]">
           <div className="inline-flex w-max items-center justify-center gap-[1rem] rounded-[2.4rem] border-t border-solid border-[#424242] bg-[#1a1a1a] px-[1.6rem] py-[.8rem]">
